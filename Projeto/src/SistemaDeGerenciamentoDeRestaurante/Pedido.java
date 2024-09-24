@@ -1,8 +1,6 @@
 import java.util.ArrayList; 
 import java.util.List;
 
-package ItemDoPedido;
-
 public class Pedido {
     private String idPedido;
     private String cliente;
@@ -42,5 +40,30 @@ public class Pedido {
 
     public String getMetodoPagamento() {
         return metodoPagamento;
+    }
+
+    public void setTotal(double total){
+        this.total = total;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
+    }
+
+    public void setIdPedidos(String idPedido){
+        this.idPedido = idPedido;
+    }
+
+    public void setCliente(String cliente){
+        this.cliente = cliente;
+    }
+
+    public void setMetodoPagamento(String metodoPagamento){
+        if(metodoPagamento != "Cartão" && metodoPagamento != "Dinheiro"){
+            System.out.println("Forma de pagamento não válido.");
+        }else{
+            this.metodoPagamento = metodoPagamento;
+            System.out.println("Confirmado");
+        }
     }
 }
