@@ -1,9 +1,10 @@
 import java.util.List;
+package ItemDoPedido;
 
 public class Pedido {
     private String idPedido;
     private String cliente;
-    private List<Item> itens;
+    private List<ItemDoPedido> itens;
     private double total;
     private String status;
     private String metodoPagamento;
@@ -14,7 +15,7 @@ public class Pedido {
         this.cliente = cliente;
         this.itens = new ArrayList<>();
         this.total = 0.0;
-        this.status = "Pendente";l
+        this.status = "Pendente";
         this.metodoPagamento = metodoPagamento;
     }
 
@@ -27,7 +28,7 @@ public class Pedido {
         return cliente;
     }
 
-    public List<Item> getItens() {
+    public List<ItemDoPedido> getItens() {
         return itens;
     }
 
