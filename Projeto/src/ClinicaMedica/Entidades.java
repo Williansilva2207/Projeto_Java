@@ -34,7 +34,6 @@ class Medico {
         this.atendimentosRealizados = 0;
         this.avaliacoes = new ArrayList<>();
         this.horariosDisponiveis = new ArrayList<>();
-        // Definindo horários disponíveis (exemplo)
         for (int i = 8; i <= 17; i++) {
             horariosDisponiveis.add(i + ":00");
             horariosDisponiveis.add(i + ":30");
@@ -97,7 +96,11 @@ class Atendimento {
         this.medico = medico;
         this.dataHora = dataHora;
         medico.incrementarAtendimentos();
-        medico.removerHorario(dataHora.split(" ")[1]); // Remove o horário da lista de disponíveis
+        medico.removerHorario(dataHora.split(" ")[1]);
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
     }
 
     public Medico getMedico() {

@@ -52,13 +52,25 @@ class ConsultorioManager {
     public void buscarPaciente(Scanner scanner) {
         System.out.print("Digite o CPF do paciente: ");
         String cpf = scanner.nextLine();
+        boolean encontrado = false;
+
         for (Paciente paciente : pacientes) {
             if (paciente.getCpf().equals(cpf)) {
                 System.out.println("Paciente encontrado: " + paciente.getNome());
-                return;
+                encontrado = true;
+                System.out.println("Consultas agendadas:");
+                for (Atendimento atendimento : atendimentos) {
+                    if (atendimento.getPaciente().getCpf().equals(cpf)) {
+                        System.out.println(atendimento);
+                    }
+                }
+                break;
             }
         }
-        System.out.println("Paciente não encontrado.");
+
+        if (!encontrado) {
+            System.out.println("Paciente não encontrado.");
+        }
     }
 
     public void relatorioAtendimentos() {
@@ -74,7 +86,7 @@ class ConsultorioManager {
         boolean found = false;
 
         for (Atendimento atendimento : atendimentos) {
-            if (atendimento.getMedico().getNome().equals(cpf)) {
+            if (atendimento.getPaciente().getCpf().equals(cpf)) {
                 System.out.print("Avalie o atendimento com estrelas (1 a 5): ");
                 int estrelas = scanner.nextInt();
                 if (estrelas < 1 || estrelas > 5) {

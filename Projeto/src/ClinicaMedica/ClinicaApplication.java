@@ -6,13 +6,17 @@ public class ClinicaApplication {
         ConsultorioManager consultorioManager = new ConsultorioManager();
 
         while (true) {
-            System.out.println("Menu:");
-            System.out.println("1. Agendar atendimento");
-            System.out.println("2. Buscar paciente");
-            System.out.println("3. Relatório de atendimentos");
-            System.out.println("4. Avaliar atendimento");
-            System.out.println("5. Consultar médico mais requisitado");
+            limparTela();
+            System.out.println("========================================");
+            System.out.println("         Sistema de Clínica Médica      ");
+            System.out.println("========================================");
+            System.out.println("1. Agendar Atendimento");
+            System.out.println("2. Buscar Paciente");
+            System.out.println("3. Relatório de Atendimentos");
+            System.out.println("4. Avaliar Atendimento");
+            System.out.println("5. Consultar Médico Mais Requisitado");
             System.out.println("6. Sair");
+            System.out.println("========================================");
             System.out.print("Escolha uma opção: ");
             int option = scanner.nextInt();
             scanner.nextLine(); // Limpar o buffer
@@ -34,11 +38,24 @@ public class ClinicaApplication {
                     consultorioManager.medicoMaisRequisitado();
                     break;
                 case 6:
-                    System.out.println("Saindo...");
+                    System.out.println("Saindo... Obrigado por usar o sistema!");
                     return;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
+                    pausa();
             }
+            pausa();
         }
+    }
+
+    private static void limparTela() {
+        // Limpa a tela (comandos para diferentes sistemas)
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+    }
+
+    private static void pausa() {
+        System.out.println("Pressione Enter para continuar...");
+        new Scanner(System.in).nextLine();
     }
 }
