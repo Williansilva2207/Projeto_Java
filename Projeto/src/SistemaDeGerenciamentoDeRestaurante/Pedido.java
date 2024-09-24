@@ -1,4 +1,6 @@
+import java.util.ArrayList; 
 import java.util.List;
+
 package ItemDoPedido;
 
 public class Pedido {
@@ -9,7 +11,6 @@ public class Pedido {
     private String status;
     private String metodoPagamento;
 
-    
     public Pedido(String idPedido, String cliente, String metodoPagamento) {
         this.idPedido = idPedido;
         this.cliente = cliente;
@@ -19,7 +20,6 @@ public class Pedido {
         this.metodoPagamento = metodoPagamento;
     }
 
-    // Getters e Setters
     public String getIdPedido() {
         return idPedido;
     }
@@ -44,4 +44,3 @@ public class Pedido {
         return metodoPagamento;
     }
 }
-
