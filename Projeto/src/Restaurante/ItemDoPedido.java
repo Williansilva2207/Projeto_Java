@@ -1,8 +1,8 @@
 import java.util.List;
-
+import java.util.ArrayList; 
 public class ItemDoPedido {
     private List<String> descricao;
-    private List<Int> quantidade;
+    private List<Integer> quantidade;
     private double preco;
 
     public Item(double preco) {
@@ -15,7 +15,7 @@ public class ItemDoPedido {
         return descricao;
     }
 
-    public List<Int> getQuantidade() {
+    public List<Integer> getQuantidade() {
         return quantidade;
     }
 
