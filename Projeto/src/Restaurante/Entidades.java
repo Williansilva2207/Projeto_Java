@@ -98,10 +98,12 @@ class Mesa {
     class Cardapio{
         private String comida;
         private String descrision;
+        private String nationalite;
 
-        public Cardapio(String comida, String descrision){
+        public Cardapio(String comida, String descrision, String nationalite){
             this.comida = comida;
             this.descrision = descrision;
+            this.nationalite = nationalite;
         }
         public String getComida(){
             return comida;
@@ -111,6 +113,9 @@ class Mesa {
         }
         public void setComida(String comida){
             this.comida = comida;
+        }
+        public String getNationalite(){
+            return nationalite;
         }
     }
 }
