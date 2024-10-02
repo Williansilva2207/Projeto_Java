@@ -65,12 +65,14 @@ class Itempedido {
 class Mesa {
     private Pedido pedido;
     private Itempedido itempedido;
-    private int numeromesa;
+    private boolean disponibilidade = true;
+    private int numeroMesa;
 
-    public Mesa(Pedido pedido, Itempedido itempedido, int numeromesa) {
+    public Mesa(Pedido pedido, Itempedido itempedido, int numeroMesa, boolean disponibilidade) {
         this.pedido = pedido;
         this.itempedido = itempedido;
-        this.numeromesa = numeromesa;
+        this.numeroMesa = numeroMesa;
+        this.disponibilidade = disponibilidade;
         itempedido.incrementarvezespedidos();
     }
 
@@ -82,9 +84,15 @@ class Mesa {
         return itempedido;
     }
 
+    public boolean isDisponibilidade(){
+        return disponibilidade;
+    }
+    public int getNumeroMesa(){
+        return numeroMesa;
+    }
     @Override
     public String toString() {
-        return "Prato " + itempedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda "+ pedido.getComandas()+ " na mesa " + numeromesa;
+        return "Prato " + itempedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda "+ pedido.getComandas()+ " na mesa " + numeroMesa;
     }
 }
 
