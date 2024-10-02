@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Pedido {
+class Pedido{
     private String cliente;
     private String comanda;
 
@@ -10,50 +10,96 @@ class Pedido {
         this.comanda = comanda;
     }
 
+    // Getter para cliente
     public String getCliente() {
         return cliente;
     }
 
-    public String getComandas() {
+    // Setter para cliente
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    // Getter para comanda
+    public String getComanda() {
         return comanda;
+    }
+
+    // Setter para comanda
+    public void setComanda(String comanda) {
+        this.comanda = comanda;
     }
 }
 
-class Itempedido {
+
+class ItemPedido {
     private String prato;
-    private String naturalidade;
-    private int vezespedidos;
+    private String nacionalidade;
+    private int vezesPedidos;
     private List<Integer> avaliacoes;
 
-    public Itempedido(String prato, String naturalidade, int vezespedidos, List<Integer> avaliacoes) {
+    public ItemPedido(String prato, String nacionalidade) {
         this.prato = prato;
-        this.naturalidade = naturalidade;
-        this.vezespedidos = vezespedidos;
-        this.avaliacoes = avaliacoes;
+        this.nacionalidade = nacionalidade;
+        this.vezesPedidos = 0;
+        this.avaliacoes = new ArrayList<>();
     }
 
+    // Getter para prato
     public String getPrato() {
         return prato;
     }
 
-    public String getNaturalidade() {
-        return naturalidade;
+    // Setter para prato
+    public void setPrato(String prato) {
+        this.prato = prato;
     }
 
-    public void incrementarvezespedidos() {
-        this.vezespedidos++;
+    // Getter para nacionalidade
+    public String getNacionalidade() {
+        return nacionalidade;
     }
 
+    // Setter para nacionalidade
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+
+    // Getter para vezesPedidos
     public int getVezesPedidos() {
-        return vezespedidos;
+        return vezesPedidos;
     }
 
+    // Setter para vezesPedidos
+    public void setVezesPedidos(int vezesPedidos) {
+        this.vezesPedidos = vezesPedidos;
+    }
+
+    // Getter para avaliacoes
+    public List<Integer> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    // Setter para avaliacoes
+    public void setAvaliacoes(List<Integer> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
+
+    // Método para incrementar vezesPedidos
+    public void incrementarVezesPedidos() {
+        this.vezesPedidos++;
+    }
+
+    // Método para adicionar avaliação
     public void adicionarAvaliacao(int estrelas) {
         avaliacoes.add(estrelas);
     }
 
+    // Método para calcular média das avaliações
     public double calcularMediaAvaliacoes() {
-        if (avaliacoes.isEmpty()) return 0;
+        if (avaliacoes.isEmpty()) {
+            return 0;
+        }
         int soma = 0;
         for (int nota : avaliacoes) {
             soma += nota;
@@ -64,59 +110,97 @@ class Itempedido {
 
 class Mesa {
     private Pedido pedido;
-    private Itempedido itempedido;
-    private boolean disponibilidade = true;
+    private ItemPedido itemPedido;
+    private boolean disponibilidade;
     private int numeroMesa;
 
-    public Mesa(Pedido pedido, Itempedido itempedido, int numeroMesa, boolean disponibilidade) {
+    public Mesa(Pedido pedido, ItemPedido itemPedido, int numeroMesa, boolean disponibilidade) {
         this.pedido = pedido;
-        this.itempedido = itempedido;
+        this.itemPedido = itemPedido;
         this.numeroMesa = numeroMesa;
         this.disponibilidade = disponibilidade;
-        itempedido.incrementarvezespedidos();
+        itemPedido.incrementarVezesPedidos();
     }
 
+    // Getter e setter para pedido
     public Pedido getPedido() {
         return pedido;
     }
 
-    public Itempedido getitempedido() {
-        return itempedido;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
-    public boolean isDisponibilidade(){
+    // Getter e setter para itemPedido
+    public ItemPedido getItemPedido() {
+        return itemPedido;
+    }
+
+    public void setItemPedido(ItemPedido itemPedido) {
+        this.itemPedido = itemPedido;
+    }
+
+    // Getter e setter para disponibilidade
+    public boolean isDisponivel() {
         return disponibilidade;
     }
-    public int getNumeroMesa(){
+
+    public void setDisponibilidade(boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
+
+    // Getter e setter para numeroMesa
+    public int getNumeroMesa() {
+        
         return numeroMesa;
     }
-    @Override
-    public String toString() {
-        return "Prato " + itempedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda "+ pedido.getComandas()+ " na mesa " + numeroMesa;
+
+    public void setNumeroMesa(int numeroMesa) {
+        if(numeroMesa > 7){
+            return;
+        }
+        this.numeroMesa = numeroMesa;
     }
 
-    class Cardapio{
-        private String comida;
-        private String descrision;
-        private String nationalite;
-
-        public Cardapio(String comida, String descrision, String nationalite){
-            this.comida = comida;
-            this.descrision = descrision;
-            this.nationalite = nationalite;
-        }
-        public String getComida(){
-            return comida;
-        }
-        public String getDescrision(){
-            return descrision;
-        }
-        public void setComida(String comida){
-            this.comida = comida;
-        }
-        public String getNationalite(){
-            return nationalite;
-        }
+    @Override
+    public String toString() {
+        return "Prato " + itemPedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda " + pedido.getComanda() + " na mesa " + numeroMesa;
     }
 }
 
+
+class Cardapio {
+    private String comida;
+    private String descricao;
+    private String nacionalidade;
+
+    public Cardapio(String comida, String descricao, String nacionalidade) {
+        this.comida = comida;
+        this.descricao = descricao;
+        this.nacionalidade = nacionalidade;
+    }
+
+    public String getComida() {
+        return comida;
+    }
+
+    public void setComida(String comida) {
+        this.comida = comida;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+}

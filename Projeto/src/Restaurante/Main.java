@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SistemaRestaurante {
+public class Main{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         RestauranteManager consultorioManager = new RestauranteManager();
@@ -21,21 +21,21 @@ public class SistemaRestaurante {
             int option = scanner.nextInt();
             scanner.nextLine(); // Limpar o buffer
 
-            switch (option) {
+            switch(option){
                 case 1:
-                    RestauranteManager.fazerPedido(scanner);
+                    consultorioManager.fazerPedido();
                     break;
                 case 2:
-                    RestauranteManager.buscarPedido(scanner);
+                    consultorioManager.buscarPedido();
                     break;
                 case 3:
-                    RestauranteManager.relatorioMesas();
+                    consultorioManager.relatorioMesas();
                     break;
                 case 4:
-                    RestauranteManager.avaliarAtendimento(scanner);
+                    consultorioManager.avaliarAtendimento();
                     break;
                 case 5:
-                    RestauranteManager.pratoMaisPedido();
+                    consultorioManager.pratoMaisPedido();
                     break;
                 case 6:
                     System.out.println("Saindo... Obrigado por usar o sistema!");
