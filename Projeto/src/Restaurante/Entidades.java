@@ -94,5 +94,24 @@ class Mesa {
     public String toString() {
         return "Prato " + itempedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda "+ pedido.getComandas()+ " na mesa " + numeroMesa;
     }
+
+    class Cardapio{
+        private String comida;
+        private String descrision;
+
+        public Cardapio(String comida, String descrision){
+            this.comida = comida;
+            this.descrision = descrision;
+        }
+        public String getComida(){
+            return comida;
+        }
+        public String getDescrision(){
+            return descrision;
+        }
+        public void setComida(String comida){
+            this.comida = comida;
+        }
+    }
 }
 
