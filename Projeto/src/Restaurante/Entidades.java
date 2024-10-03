@@ -175,7 +175,7 @@ class Mesa {
 
     @Override
     public String toString() {
-        return "Prato " + itemPedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda " + pedido.getComanda() + " na mesa " + numeroMesa + "Preço " + itemPedido.getPreco();
+        return "Prato " + itemPedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda " + pedido.getComanda() + " na mesa " + numeroMesa + " Preço R$" + itemPedido.getPreco();
     }
 }
 

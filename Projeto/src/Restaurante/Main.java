@@ -37,6 +37,7 @@ public class Main{
             }
             pausa();
         }
+        
     }
 
     private static void limparTela() {
