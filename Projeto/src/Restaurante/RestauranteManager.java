@@ -59,6 +59,7 @@ class RestauranteManager{
             System.out.println("Comida: " + i.getComida());
             System.out.println("Descrição: " + i.getDescricao());
             System.out.println("Nacionalidade: " + i.getNacionalidade());
+            System.out.println("Preço: R$" + i.getPreco1());
             System.out.println("____________________________________________________________");
         }
 
@@ -91,6 +92,24 @@ class RestauranteManager{
                 return;
             }
         }   
+        
+    }
+    
+    public void liberarMesa(){
+        System.out.println("Qual é a senha: ");
+        String senha = sc.next();
+        if(senha.equals("ADM2024")){
+            int numberTable;
+            System.out.println("Digite o número da mesa:");
+            numberTable = sc.nextInt();
+            for (Mesa mesa : mesas) {
+                if (mesa.getNumeroMesa() == numberTable) {
+                    mesas.get(numberTable-1).setNumeroMesa(0);
+                    num = numberTable -1;
+                    return;
+                }
+            }    
+        }
         
     }
    

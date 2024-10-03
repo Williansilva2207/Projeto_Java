@@ -11,7 +11,7 @@ public class Main{
             System.out.println("          Sistema de Restaurante        ");
             System.out.println("========================================");
             System.out.println("1. Fazer Pedido");
-            System.out.println("2. Buscar Pedido");
+            System.out.println("2. Informações do Pedido");
             System.out.println("3. Liberar Mesa");
             System.out.println("0. Sair");
             System.out.println("========================================");
@@ -27,6 +27,7 @@ public class Main{
                     consultorioManager.buscarPedido();
                     break;
                 case 3:
+                    consultorioManager.liberarMesa();
                     break;
                 case 0:
                     System.out.println("Saindo... Obrigado por usar o sistema!");
