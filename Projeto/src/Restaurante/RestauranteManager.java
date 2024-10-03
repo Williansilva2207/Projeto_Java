@@ -1,8 +1,10 @@
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class RestauranteManager{
+class RestauranteManager {
+
     private List<Pedido> pedidos = new ArrayList<>();
     private List<Mesa> mesas = new ArrayList<>();
     private List<ItemPedido> itens = new ArrayList<>();
@@ -15,11 +17,8 @@ class RestauranteManager{
         this.mesas = new ArrayList<>();
         this.itens = new ArrayList<>();
         this.cardapio = new ArrayList<>();
-        
 
         // Adicionando mesas ao restaurante
-        
-
         // Adicionando pratos ao cardápio
         cardapio.add(new Cardapio("Tacacá", "Uma sopa típica feita com tucupi, goma de mandioca, camarão e jambu.", "Região Norte", 22.50));
         cardapio.add(new Cardapio("Acarajé", "Um bolinho de feijão-fradinho frito no azeite de dendê, recheado com vatapá, camarão seco e caruru.", "Região Nordeste", 11.50));
@@ -28,13 +27,15 @@ class RestauranteManager{
         cardapio.add(new Cardapio("Barreado", "Um prato tradicional do litoral do Paraná feito com carne bovina cozida lentamente.", "Região Sul", 17.50));
         cardapio.add(new Cardapio("Pato no Tucupi", "Um prato típico do Pará, onde o pato é cozido com tucupi e jambu.", "Região Norte", 22.50));
     }
-    
-    public int getNum(){
+
+    public int getNum() {
         return num;
     }
-    public void setNum(int numero){
+
+    public void setNum(int numero) {
         this.num += numero;
     }
+
     // Mostrar a disponibilidade das mesas
     public void mostrarDisponibilidadeMesa() {
         for (Mesa i : mesas) {
@@ -63,6 +64,8 @@ class RestauranteManager{
             System.out.println("____________________________________________________________");
         }
 
+
+
         System.out.println("Digite o número do alimento que deseja:");
         opcao = sc.nextInt();
         sc.nextLine();
@@ -70,19 +73,20 @@ class RestauranteManager{
         nomeDoCliente = sc.nextLine();
         setNum(numero);
         if (opcao > 0 && opcao <= cardapio.size() && num <= 7) {
-            itens.add(new ItemPedido(cardapio.get(opcao - 1).getComida(), cardapio.get(opcao - 1).getNacionalidade(),cardapio.get(opcao - 1).getPreco1()));
+            itens.add(new ItemPedido(cardapio.get(opcao - 1).getComida(), cardapio.get(opcao - 1).getNacionalidade(), cardapio.get(opcao - 1).getPreco1()));
             System.out.println("Item adicionado ao pedido.");
             Pedido novoPedido = new Pedido(nomeDoCliente, cardapio.get(opcao - 1).getComida());
             pedidos.add(novoPedido);
-            Mesa mesinha = new Mesa(novoPedido, new ItemPedido(cardapio.get(opcao - 1).getComida(), cardapio.get(opcao - 1).getNacionalidade(),cardapio.get(opcao - 1).getPreco1()), getNum() , true);
+            Mesa mesinha = new Mesa(novoPedido, new ItemPedido(cardapio.get(opcao - 1).getComida(), cardapio.get(opcao - 1).getNacionalidade(), cardapio.get(opcao - 1).getPreco1()), getNum(), true);
             mesas.add(mesinha);
-        } else if(num > 7) {
+        } else if (num > 7) {
             System.out.println("Não há mesas disponíveis");
-        }else{
+        } else {
             System.out.println("Opção inválida");
         }
     }
-    public void buscarPedido(){
+
+    public void buscarPedido() {
         int numberTable;
         System.out.println("Digite o número da mesa:");
         numberTable = sc.nextInt();
@@ -91,29 +95,27 @@ class RestauranteManager{
                 System.out.println(mesa.toString());
                 return;
             }
-        }   
-        
+        }
+
     }
-    
-    public void liberarMesa(){
+
+    public void liberarMesa() {
         System.out.println("Qual é a senha: ");
         String senha = sc.next();
-        if(senha.equals("ADM2024")){
+        if (senha.equals("ADM2024")) {
             int numberTable;
             System.out.println("Digite o número da mesa:");
             numberTable = sc.nextInt();
             for (Mesa mesa : mesas) {
                 if (mesa.getNumeroMesa() == numberTable) {
-                    mesas.get(numberTable-1).setNumeroMesa(0);
-                    num = numberTable -1;
+                    mesas.get(numberTable - 1).setNumeroMesa(0);
+                    num = numberTable - 1;
                     return;
                 }
-            }    
+            }
+            System.out.println("Mesa não encontrada!");
         }
-        
+
     }
-   
+
 }
-
-
-   

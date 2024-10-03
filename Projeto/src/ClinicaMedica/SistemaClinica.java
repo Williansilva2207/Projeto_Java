@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class ClinicaApplication {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ConsultorioManager consultorioManager = new ConsultorioManager();
+public class SistemaClinica {
+    Scanner scanner = new Scanner(System.in);
+    ConsultorioManager consultorioManager = new ConsultorioManager();
+    public void iniciarSistema() {
 
         while (true) {
             limparTela();
