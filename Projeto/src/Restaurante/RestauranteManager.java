@@ -21,12 +21,12 @@ class RestauranteManager{
         
 
         // Adicionando pratos ao cardápio
-        cardapio.add(new Cardapio("Tacacá", "Uma sopa típica feita com tucupi, goma de mandioca, camarão e jambu.", "Região Norte"));
-        cardapio.add(new Cardapio("Acarajé", "Um bolinho de feijão-fradinho frito no azeite de dendê, recheado com vatapá, camarão seco e caruru.", "Região Nordeste"));
-        cardapio.add(new Cardapio("Arroz com Pequi", "Um prato de arroz cozido com o pequi, um fruto típico do Cerrado.", "Região Centro-Oeste"));
-        cardapio.add(new Cardapio("Feijão Tropeiro", "Um prato feito com feijão, farinha de mandioca, linguiça, bacon e ovos.", "Região Sudeste"));
-        cardapio.add(new Cardapio("Barreado", "Um prato tradicional do litoral do Paraná feito com carne bovina cozida lentamente.", "Região Sul"));
-        cardapio.add(new Cardapio("Pato no Tucupi", "Um prato típico do Pará, onde o pato é cozido com tucupi e jambu.", "Região Norte"));
+        cardapio.add(new Cardapio("Tacacá", "Uma sopa típica feita com tucupi, goma de mandioca, camarão e jambu.", "Região Norte", 22.50));
+        cardapio.add(new Cardapio("Acarajé", "Um bolinho de feijão-fradinho frito no azeite de dendê, recheado com vatapá, camarão seco e caruru.", "Região Nordeste", 11.50));
+        cardapio.add(new Cardapio("Arroz com Pequi", "Um prato de arroz cozido com o pequi, um fruto típico do Cerrado.", "Região Centro-Oeste", 15.00));
+        cardapio.add(new Cardapio("Feijão Tropeiro", "Um prato feito com feijão, farinha de mandioca, linguiça, bacon e ovos.", "Região Sudeste", 16.50));
+        cardapio.add(new Cardapio("Barreado", "Um prato tradicional do litoral do Paraná feito com carne bovina cozida lentamente.", "Região Sul", 17.50));
+        cardapio.add(new Cardapio("Pato no Tucupi", "Um prato típico do Pará, onde o pato é cozido com tucupi e jambu.", "Região Norte", 22.50));
     }
     
     public int getNum(){
@@ -69,11 +69,11 @@ class RestauranteManager{
         nomeDoCliente = sc.nextLine();
         setNum(numero);
         if (opcao > 0 && opcao <= cardapio.size() && num <= 7) {
-            itens.add(new ItemPedido(cardapio.get(opcao - 1).getComida(), cardapio.get(opcao - 1).getNacionalidade()));
+            itens.add(new ItemPedido(cardapio.get(opcao - 1).getComida(), cardapio.get(opcao - 1).getNacionalidade(),cardapio.get(opcao - 1).getPreco1()));
             System.out.println("Item adicionado ao pedido.");
             Pedido novoPedido = new Pedido(nomeDoCliente, cardapio.get(opcao - 1).getComida());
             pedidos.add(novoPedido);
-            Mesa mesinha = new Mesa(novoPedido, new ItemPedido(cardapio.get(opcao - 1).getComida(), cardapio.get(opcao - 1).getNacionalidade()), getNum() , true);
+            Mesa mesinha = new Mesa(novoPedido, new ItemPedido(cardapio.get(opcao - 1).getComida(), cardapio.get(opcao - 1).getNacionalidade(),cardapio.get(opcao - 1).getPreco1()), getNum() , true);
             mesas.add(mesinha);
         } else if(num > 7) {
             System.out.println("Não há mesas disponíveis");

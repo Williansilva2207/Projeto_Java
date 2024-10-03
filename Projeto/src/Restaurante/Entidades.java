@@ -36,13 +36,15 @@ class ItemPedido {
     private String prato;
     private String nacionalidade;
     private int vezesPedidos;
+    private double preco;
     private List<Integer> avaliacoes;
 
-    public ItemPedido(String prato, String nacionalidade) {
+    public ItemPedido(String prato, String nacionalidade, double preco) {
         this.prato = prato;
         this.nacionalidade = nacionalidade;
         this.vezesPedidos = 0;
         this.avaliacoes = new ArrayList<>();
+        this.preco = preco;
     }
 
     // Getter para prato
@@ -106,6 +108,12 @@ class ItemPedido {
         }
         return (double) soma / avaliacoes.size();
     }
+    public double getPreco(){
+        return preco;
+    }
+    public void setPreco(double preco){
+        this.preco = preco;
+    }
 }
 
 class Mesa {
@@ -167,7 +175,7 @@ class Mesa {
 
     @Override
     public String toString() {
-        return "Prato " + itemPedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda " + pedido.getComanda() + " na mesa " + numeroMesa;
+        return "Prato " + itemPedido.getPrato() + " para o cliente " + pedido.getCliente() + " com a comanda " + pedido.getComanda() + " na mesa " + numeroMesa + "Preço " + itemPedido.getPreco();
     }
 }
 
@@ -176,11 +184,13 @@ class Cardapio {
     private String comida;
     private String descricao;
     private String nacionalidade;
+    private double preco1;
 
-    public Cardapio(String comida, String descricao, String nacionalidade) {
+    public Cardapio(String comida, String descricao, String nacionalidade, double preco1) {
         this.comida = comida;
         this.descricao = descricao;
         this.nacionalidade = nacionalidade;
+        this.preco1 = preco1;
     }
 
     public String getComida() {
@@ -205,5 +215,11 @@ class Cardapio {
 
     public void setNacionalidade(String nacionalidade) {
         this.nacionalidade = nacionalidade;
+    }
+    public double getPreco1(){
+        return preco1;
+    }
+    public void setPreco1(double preco1){
+        this.preco1 = preco1;
     }
 }
