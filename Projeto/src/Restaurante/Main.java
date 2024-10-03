@@ -12,10 +12,7 @@ public class Main{
             System.out.println("========================================");
             System.out.println("1. Fazer Pedido");
             System.out.println("2. Buscar Pedido");
-            System.out.println("3. Relatório das mesas");
-            System.out.println("4. Avaliar Atendimento");
-            System.out.println("5. Consultar prato mais pedido");
-            System.out.println("6. Sair");
+            System.out.println("0. Sair");
             System.out.println("========================================");
             System.out.print("Escolha uma opção: ");
             int option = scanner.nextInt();
@@ -28,16 +25,7 @@ public class Main{
                 case 2:
                     consultorioManager.buscarPedido();
                     break;
-                case 3:
-                    consultorioManager.relatorioMesas();
-                    break;
-                case 4:
-                    consultorioManager.avaliarAtendimento();
-                    break;
-                case 5:
-                    consultorioManager.pratoMaisPedido();
-                    break;
-                case 6:
+                case 0:
                     System.out.println("Saindo... Obrigado por usar o sistema!");
                     return;
                 default:

@@ -146,6 +146,9 @@ class Mesa {
     }
 
     public void setDisponibilidade(boolean disponibilidade) {
+        if(numeroMesa > 7){
+            this.disponibilidade = false;
+        }
         this.disponibilidade = disponibilidade;
     }
 
