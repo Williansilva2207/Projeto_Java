@@ -1,10 +1,12 @@
 import java.util.Scanner;
+import Evento.SistemaEventos;
 
 public class CentraldoSistema {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         SistemaRestaurante sr = new SistemaRestaurante();
         SistemaClinica scl = new SistemaClinica();
+        SistemaEventos se = new SistemaEventos();
 
         sr.limparTela();
         System.out.println("========================================");
@@ -27,7 +29,7 @@ public class CentraldoSistema {
                 scl.iniciarSistema();
                 break;
             case 3:
-                //so falta o de nicolas agora nesse po@%
+                se.iniciarSistema();
                 break;
             case 0:
                 System.out.println("Obrigado por usar nosso Sistema!!!");
