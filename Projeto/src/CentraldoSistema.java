@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import Evento.SistemaEventos;
 
@@ -34,7 +35,5 @@ public class CentraldoSistema {
             case 0:
                 System.out.println("Obrigado por usar nosso Sistema!!!");
         }
-
-        sr.iniciarSistema();
     }
 }
