@@ -1,9 +1,8 @@
 package Interface;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
 
 // Classe para Pedido
 class Pedido {
@@ -52,6 +51,11 @@ class ItemPedido {
 
     public double getPreco() {
         return preco;
+    }
+
+    @Override
+    public String toString() {
+        return prato + " - R$" + String.format("%.2f", preco);
     }
 }
 
@@ -112,11 +116,15 @@ class Cardapio {
     public double getPreco() {
         return preco;
     }
+
+    @Override
+    public String toString() {
+        return comida + " - R$" + String.format("%.2f", preco);
+    }
 }
 
 // Classe para gerenciar o restaurante
 class RestauranteManager {
-    private List<Pedido> pedidos = new ArrayList<>();
     private List<Mesa> mesas = new ArrayList<>();
     private List<Cardapio> cardapio = new ArrayList<>();
 
@@ -146,7 +154,6 @@ class RestauranteManager {
                     novoPedido.adicionarItem(item);
                 }
                 mesa.fazerPedido(novoPedido);
-                pedidos.add(novoPedido);
                 JOptionPane.showMessageDialog(null, "Pedido feito com sucesso para " + nome + "!");
                 return;
             }
@@ -188,10 +195,6 @@ public class SistemaRestauranteApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Adicionando um botão de voltar
-        JButton voltarButton = new JButton("<- Voltar");
-        voltarButton.addActionListener(e -> voltarAoMenuPrincipal());
-
         // Painel de entrada
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(3, 2));
@@ -226,7 +229,6 @@ public class SistemaRestauranteApp extends JFrame {
         inputPanel.add(liberarMesaButton);
 
         // Adicionando os componentes à janela
-        add(voltarButton, BorderLayout.NORTH);
         add(inputPanel, BorderLayout.SOUTH);
     }
 
@@ -257,8 +259,9 @@ public class SistemaRestauranteApp extends JFrame {
         }
     }
 
-    private void voltarAoMenuPrincipal() {
-        this.dispose(); // Fecha a janela atual do restaurante
-        new InterfacePrincipal().setVisible(true); // Retorna ao menu principal
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new SistemaRestauranteApp().setVisible(true);
+        });
     }
 }
