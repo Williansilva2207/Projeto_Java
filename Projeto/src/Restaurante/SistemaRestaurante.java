@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 class SistemaRestaurante {
-    private Scanner scanner = new Scanner(System.in);
-    private RestauranteManager restauranteManager = new RestauranteManager();
+    public Scanner scanner = new Scanner(System.in);
+    public RestauranteManager restauranteManager = new RestauranteManager();
 
     public void iniciarSistema() {
         while (true) {

@@ -1,15 +1,15 @@
-
 import java.util.Scanner;
 import Evento.SistemaEventos;
-
+import Restaurante.SistemaRestaurante;
+import ClinicaMedica.SistemaClinica;
 public class CentraldoSistema {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        SistemaRestaurante sr = new SistemaRestaurante();
+        SistemaRestaurante res = new SistemaRestaurante();
         SistemaClinica scl = new SistemaClinica();
         SistemaEventos se = new SistemaEventos();
 
-        sr.limparTela();
+        
         System.out.println("========================================");
         System.out.println("            Central de Sistema          ");
         System.out.println("========================================");
@@ -24,7 +24,7 @@ public class CentraldoSistema {
 
         switch (option) {
             case 1:
-                sr.iniciarSistema();
+                res.iniciarSistema();
                 break;
             case 2:
                 scl.iniciarSistema();
@@ -35,5 +35,6 @@ public class CentraldoSistema {
             case 0:
                 System.out.println("Obrigado por usar nosso Sistema!!!");
         }
+        sc.close();
     }
 }
