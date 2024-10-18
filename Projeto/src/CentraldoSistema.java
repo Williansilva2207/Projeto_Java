@@ -1,7 +1,5 @@
 import java.util.Scanner;
 import Evento.SistemaEventos;
-import Restaurante.SistemaRestaurante;
-import ClinicaMedica.SistemaClinica;
 public class CentraldoSistema {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

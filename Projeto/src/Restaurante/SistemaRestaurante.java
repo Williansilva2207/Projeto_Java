@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class SistemaRestaurante {
+public class SistemaRestaurante {
     public Scanner scanner = new Scanner(System.in);
     public RestauranteManager restauranteManager = new RestauranteManager();
 
